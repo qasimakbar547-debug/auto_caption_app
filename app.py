@@ -1,6 +1,9 @@
+
 import streamlit as st
 import whisper
 import subprocess
+import imageio_ffmpeg
+ffmpeg_exe = imageio_ffmpeg.get_ffmpeg_exe()
 
 st.set_page_config(page_title="Auto Caption App")
 
@@ -51,8 +54,8 @@ if uploaded_file is not None:
                     f.write(f"{format_time(start)} --> {format_time(end)}\n")
                     f.write(f"{text}\n\n")
 
-            subprocess.run([
-                "ffmpeg",
+           subprocess.run([
+    ffmpeg_exe,
                 "-y",
                 "-i", input_video,
                 "-vf", "subtitles=captions.srt",
