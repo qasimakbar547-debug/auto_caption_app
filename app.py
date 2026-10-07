@@ -1,4 +1,4 @@
-```python
+python
 import streamlit as st
 import whisper
 import subprocess
@@ -75,4 +75,3 @@ if uploaded_file is not None:
                 file_name="captioned_video.mp4",
                 mime="video/mp4"
             )
-```
